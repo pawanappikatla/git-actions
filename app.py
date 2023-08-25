@@ -80,7 +80,7 @@ def create_item():
     key = item['key']
     value = item['value']
     create_item_in_db(key, value)
-    return jsonify({'message': 'Item created successfully'}), 201
+    return jsonify({'message': 'Item created successfull'}), 201
 
 @app.route('/items/<string:key>', methods=['PUT'])
 def update_item(key):
