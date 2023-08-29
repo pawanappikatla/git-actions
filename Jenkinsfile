@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/iampsrv/batchsevenproject.git'
+                git 'https://github.com/pawanappikatla/git-actions.git'
                 sh "ls -ltr"
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         {
             steps
             {
-                sh 'sudo -S docker build -t psrv3/batchsevengithub-action .'
+                sh 'sudo -S docker build -t pawanappikatla/git-actions.git.'
                 echo "Docker image build successfully"
                 sh "docker images"
             }
@@ -32,7 +32,7 @@ pipeline {
         {
             steps
             {
-                sh 'sudo -S docker push psrv3/batchsevengithub-action'
+                sh 'sudo -S docker push pawanappikatla/git-actions.git'
                 echo "Docker image push successfully"
             }
         }
@@ -40,8 +40,8 @@ pipeline {
         {
             steps
             {   sh 'sudo -S docker rm -f flaskapp'
-                sh 'sudo -S docker rmi psrv3/jenkins-flask'
-                sh 'sudo -S docker run --name flaskapp -itd -p 5001:5001 psrv3/jenkins-flask'
+                sh 'sudo -S docker rmi pawan/jenkins-flask'
+                sh 'sudo -S docker run --name flaskapp -itd -p 5001:5001 pawan/jenkins-flask'
                 echo "Docker image push successfully"
             }
         }
